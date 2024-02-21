@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <%- include('partials/header') %>
+
+    <a href="/crear"><button>Añadir</button></a>
+    <br>
+    <% for(let i = 0; i<catalogo.length; i++) {%>
+
+        <img src="<%= catalogo[i].portada %>" height="220px" alt="">
+        <p><%= catalogo[i].nombre %></p>
+        <p><%= catalogo[i].descripcion %></p>
+        <p><%= catalogo[i].genero %></p>
+        <a href="/editar/<%= catalogo[i].id %>"><button>Editar</button></a>
+        <form action="/delete/<%= catalogo[i].id %>" method="get">
+            <button>Eliminar</button>
+        </form>
+
+    <% } %>
+    <br>
+    <%- include('partials/footer') %>
+</body>
+</html>
